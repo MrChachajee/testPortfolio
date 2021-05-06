@@ -1,0 +1,16 @@
+{
+  "name": "Portfolio",
+  "version": "1.0.0",
+  "description": "Ali Raza web portfolio",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./sass/main.scss:./public/css/main.css -w -s compressed", 
+    "prefix": "postcss ./public/css/main.css --use autoprefixer -d ./public/css/"
+  },
+  "author": "",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "dependencies": {
+    "eruda": "^2.4.1"
+  }
+}

@@ -1,0 +1,268 @@
+$main-color: black;
+$secondary-color: crimson;
+$text-color: white;
+$grey-color: #282828;
+
+@mixin flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@mixin transition-ease ($timer) {
+  transition: all $timer ease;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+html {
+  font-size: 24px;
+  font-family: Sans-Serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $main-color;
+  color: $text-color;
+  height: 100vh;
+}
+
+.max-width {
+  max-width: 1300px;
+  padding: 0 4rem;
+  margin: auto; 
+}
+
+.main{
+  background: url('../img/banner.jpg') no-repeat center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh; 
+}
+
+#nav {
+  z-index: 2;
+  background: transparent;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  @include flex;
+  justify-content: space-between;
+  align-items: center;
+  @include transition-ease(.3s);
+  
+  .logo {
+    font: 1.5rem Sans-Serif;
+    font-weight: 500;
+    margin: 0 10px;
+    
+    
+    span {
+      color: $secondary-color;
+    }
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    .nav-item { 
+      margin: 0px 10px;
+      
+      .nav-link {
+        color: white;
+        cursor: pointer;
+        @include transition-ease(.3s);  
+        
+        &:hover {
+          color: $secondary-color;
+          border-bottom: 1px solid $secondary-color;
+        }
+      } 
+    }
+  }
+  .h-15{
+    height: 18rem;
+  }
+}
+
+.open {
+  transform: rotate(360deg);
+  background: transparent !important;
+  &::before {
+    transform: rotate(45deg) translate(5px, 8px);
+  }
+  
+  &::after {
+    transform: rotate(-45deg) translate(3px, -7px);
+  }
+}
+
+.sticky {
+  background-color: $secondary-color !important;
+  .logo span {
+    color: black !important;
+  }
+  .nav-link:hover {
+    color: black !important; 
+    border-bottom: 1px solid black !important;
+  }
+}
+
+.grey {
+  background-color: $grey-color !important;
+}
+
+header {
+  position: absolute;
+  z-index: 1;
+  top: 30%;
+  left: 5%;
+  .content {
+    .text {
+      line-height: 5rem;
+      #text1 {
+        font-size: 1.6875rem;
+      }
+      
+      #text2 {
+        font-size: 4.6875rem;
+      }
+      
+      #text3 {
+        font-size: 2.5rem;
+        display: inline;
+      }
+      
+      span {
+        font-size: 2.5rem;
+        color: crimson;
+      }
+    }
+  }
+}
+
+.about {
+  padding: 100px 0;
+  background: $grey-color;
+  text-align: center;
+    
+  .title {
+    text-align: center;
+    margin: 60px 0;
+    padding-bottom: 20px;
+    
+    &::after {
+      content: "Who Am I";
+    }
+    
+    &::after {
+      font-size: 1rem;
+      color: $secondary-color;
+    }
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  html {
+    font-size: 16px;
+  }
+  
+  nav {
+    flex-direction: column;
+    
+    .left {
+      align-self: flex-start !important;
+    }
+    .right {
+      align-self: center !important;
+      overflow: hidden;
+      height: 0rem;
+      @include transition-ease(.5s);
+
+      .nav-list{
+        flex-direction: column !important;
+        align-items: center;
+        margin: 20px 0;
+        
+        .nav-item {
+          margin: 10px 0 !important;
+        }
+      }
+    }
+  } 
+  #burger {
+    z-index: 2;
+    position: fixed;
+    top: .5rem;
+    right: 10px;
+    @include transition-ease(1s);
+  
+    .burger {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 28px;
+      height: 3px;
+      background : white;
+      @include transition-ease(.5s);
+      
+      &::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        width: 28px;
+        height: 3px;
+        background: white;
+        @include transition-ease(.5s);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        width: 28px; 
+        height: 3px;
+        background: white;
+        @include transition-ease(.5s);
+      }
+    } 
+  }
+}
+
+@media screen and (max-width: 550px) {
+  html {
+    font-size: 14px;
+  }
+  
+  #text3::after {
+    content: '\a';
+    white-space: pre;
+  } 
+  
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 270px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+ 
