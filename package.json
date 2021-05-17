@@ -7,7 +7,7 @@
     "sass": "sass ./sass/main.scss:./public/css/main.css -w -s compressed", 
     "prefix": "postcss ./public/css/main.css --use autoprefixer -d ./public/css/"
   },
-  "author": "",
+  "author": "Ali Raza",
   "license": "ISC",
   "browserslist": "last 4 versions",
   "dependencies": {
